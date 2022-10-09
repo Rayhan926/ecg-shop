@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Stonecutter';
+  src: url('/fonts/stonecutter.otf');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .container_fixed {
+    @apply w-[1024px];
+  }
+}
+
+body {
+  @apply bg-body-gray;
+}
