@@ -7,7 +7,7 @@ const VideoPlayer = () => {
         autoPlay
         playsInline
         loop
-        className="w-full h-full object-cover"
+        className="w-full object-cover grow"
       ></video>
     </>
   );

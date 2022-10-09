@@ -8,7 +8,7 @@ const MobileHeader = () => {
   const [isOpenSidebar, setIsOpenSidebar] = useState(false);
   return (
     <>
-      <header className="px-5 relative h-[56px] bg-body-gray z-[3] flex items-center lg:hidden">
+      <header className="px-5 relative h-[54px] bg-body-gray z-[3] flex items-center lg:hidden shrink-0">
         <button onClick={() => setIsOpenSidebar(true)}>
           <MenuIcon />
         </button>

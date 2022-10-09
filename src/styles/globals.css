@@ -9,7 +9,7 @@
 
 @layer components {
   .container_fixed {
-    @apply w-[1024px];
+    @apply w-full pl-5 pr-10 lg:px-0 lg:w-[1024px];
   }
 }
 

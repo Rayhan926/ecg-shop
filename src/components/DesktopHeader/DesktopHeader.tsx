@@ -5,7 +5,7 @@ const DesktopHeader = () => {
   return (
     <header
       className={cx(
-        'fixed top-0 container_fixed bg-yellow-600 z-20',
+        'absolute lg:fixed top-0 w-[calc(100%-40px)] lg:container_fixed bg-yellow-600 z-20 h-[50px]',
         classes.header,
       )}
     >

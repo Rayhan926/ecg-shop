@@ -5,7 +5,7 @@ const VideoPlayer = dynamic(() => import('./components/VideoPlayer'), {
 });
 const Home = () => {
   return (
-    <div className="h-full">
+    <div className="grow flex flex-col">
       <VideoPlayer />
     </div>
   );

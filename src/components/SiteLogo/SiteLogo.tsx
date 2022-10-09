@@ -1,3 +1,4 @@
+import { APP_NAME } from '@config/constants';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -7,7 +8,7 @@ const SiteLogo = () => {
       <a>
         <Image
           src={'/img/ecg-logo.png'}
-          alt="EarthCore Group"
+          alt={APP_NAME}
           width={160}
           height={127}
         />

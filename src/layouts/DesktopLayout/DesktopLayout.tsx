@@ -18,19 +18,28 @@ const DesktopLayout = ({ children }: OnlyChildren) => {
       <DesktopSidebar />
       <div className={cx(classes.layoutWrapper)}>
         <div
-          style={{ height: screenHeight || 0 }}
+          style={{ minHeight: screenHeight || 0 }}
           className="overflow-y-auto relative flex flex-col"
         >
-          <div className="absolute h-full w-full top-0 left-0 z-[1] pointer-events-none overflow-hidden">
-            <img
-              src="/img/background.png"
-              alt="background"
-              className="w-full"
-            />
-          </div>
+          <div
+            style={{
+              backgroundImage: 'url("/img/body-bg-block.png")',
+              backgroundSize: '100px 100px',
+              backgroundPosition: 'top top',
+            }}
+            className="absolute h-full w-full top-0 left-0 z-[1] pointer-events-none overflow-hidden bg-repeat"
+          />
+
           <MobileHeader />
-          {!isHomePage && <DesktopHeader />}
-          <div className={cx(!isHomePage && 'pl-8', 'grow')}>{children}</div>
+          <div
+            className={cx(
+              !isHomePage && 'lg:pl-8',
+              'grow relative flex flex-col',
+            )}
+          >
+            {!isHomePage && <DesktopHeader />}
+            {children}
+          </div>
         </div>
       </div>
     </div>
