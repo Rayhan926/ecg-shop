@@ -12,3 +12,19 @@ export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
 export type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
+
+export type CommonPageLayoutProps = {
+  bannerImgSrc: string;
+  pageTitle: string;
+} & OnlyChildren;
+
+export type CardWithImageProps = {
+  imgSrc: string;
+  label: string;
+};
+
+export type Menu = {
+  text: string;
+  url: string;
+  pageKey: string;
+};

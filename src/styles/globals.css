@@ -1,6 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Podkova:wght@400;500;600;700;800&display=swap');
+
 @font-face {
-  font-family: 'Stonecutter';
-  src: url('/fonts/stonecutter.otf');
+  font-family: 'Gilroy-Regular';
+  src: url('/fonts/Gilroy-Regular.ttf');
+}
+@font-face {
+  font-family: 'Gilroy-Medium';
+  src: url('/fonts/Gilroy-Medium.ttf');
+}
+@font-face {
+  font-family: 'Gilroy-Semibold';
+  src: url('/fonts/Gilroy-Semibold.ttf');
 }
 
 @tailwind base;
@@ -11,6 +21,18 @@
   .container_fixed {
     @apply w-full pl-5 pr-10 lg:px-0 lg:w-[1024px];
   }
+
+  .__h2 {
+    @apply text-[26px] font-primary text-black relative pb-1.5 font-bold;
+  }
+  .__body_text {
+    @apply font-gilroy-regular text-[18px] leading-[170%] text-[#555555];
+  }
+}
+
+.__h2::before {
+  content: '';
+  @apply absolute bottom-0 left-0 w-[50px] h-px bg-gray-3;
 }
 
 body {

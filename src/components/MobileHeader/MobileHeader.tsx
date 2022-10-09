@@ -24,7 +24,7 @@ const MobileHeader = () => {
           e.target.id === 'overlay' && setIsOpenSidebar(false)
         }
         className={cx(
-          'fixed top-0 left-0 w-full h-full bg-[#545454]/80 z-[100] duration-200',
+          'fixed top-0 left-0 w-full h-full bg-[#545454]/80 z-[100] duration-200 lg:hidden',
           isOpenSidebar
             ? 'pointer-events-auto opacity-100'
             : 'pointer-events-none opacity-0 delay-500',
@@ -32,11 +32,23 @@ const MobileHeader = () => {
       >
         <div
           className={cx(
-            'h-full bg-white w-[80%] duration-500',
+            'h-full bg-white w-[80%] duration-500 flex flex-col',
             isOpenSidebar ? 'translate-x-0 delay-200' : '-translate-x-full',
           )}
         >
-          <SidebarContent />
+          <div className="px-5 relative h-[54px] flex items-center lg:hidden shrink-0">
+            <button onClick={() => setIsOpenSidebar(false)}>
+              <MenuIcon />
+            </button>
+
+            <div className="absolute top-1/2 -translate-y-1/2 left-[167px] w-10">
+              <SiteLogo />
+            </div>
+          </div>
+
+          <div className="grow">
+            <SidebarContent />
+          </div>
         </div>
       </div>
     </>
