@@ -8,6 +8,7 @@ module.exports = {
         'gilroy-regular': ['Gilroy-Regular', 'sans-serif'],
         'gilroy-medium': ['Gilroy-Medium', 'sans-serif'],
         'gilroy-semibold': ['Gilroy-Semibold', 'sans-serif'],
+        'gilroy-bold': ['Gilroy-Bold', 'sans-serif'],
       },
       colors: {
         'body-gray': '#F4F4F4',

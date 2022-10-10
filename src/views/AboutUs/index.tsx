@@ -1,6 +1,7 @@
-import CardWithImage from '@components/CardWithImage';
+import CardsRendered from '@components/CardsRendered';
 import CommonPageLayout from '@components/CommonPageLayout';
 import Divider from '@components/Divider';
+import { whatWeDoCards } from '@config/constants';
 
 const AboutUs = () => {
   return (
@@ -31,16 +32,15 @@ const AboutUs = () => {
 
         <Divider className="mt-12 mb-8" />
 
-        <h2 className="__h2">What We Do</h2>
+        <h2 className="__h2" id="what-we-do">
+          What We Do
+        </h2>
 
-        <div className="mt-12 grid grid-cols-2 gap-5">
-          <CardWithImage imgSrc="/img/residential.png" label="Residential" />
-          <CardWithImage imgSrc="/img/residential.png" label="Residential" />
-          <CardWithImage imgSrc="/img/residential.png" label="Residential" />
-          <CardWithImage imgSrc="/img/residential.png" label="Residential" />
+        <div className="mt-12">
+          <CardsRendered cards={whatWeDoCards} />
         </div>
 
-        <div className="mt-[60px]">
+        <div className="mt-11 lg:mt-[60px]">
           <h2 className="__h2">Down to the details</h2>
           <p className="mt-5 __body_text">
             Earthcore Group’s architects, engineers, and other professionals
@@ -59,7 +59,7 @@ const AboutUs = () => {
           </p>
         </div>
 
-        <div className="mt-12 mb-8">
+        <div className="mt-9 lg:mt-12 mb-5 lg:mb-8">
           <iframe
             src="https://myhub.autodesk360.com/ue283d8b2/shares/public/SH7f1edQT22b515c761ef57601e086f95852?mode=embed"
             className="w-full aspect-video"
@@ -69,12 +69,14 @@ const AboutUs = () => {
         </div>
 
         <Divider />
-        <Divider className="mb-6 mt-10" />
+        <Divider className="mb-6 mt-9 lg:mt-10" />
 
-        <div className="flex justify-between items-center pb-12">
-          <h6>Ready to start your project ?</h6>
+        <div className="flex flex-col sm:flex-row justify-center gap-3 sm:justify-between items-center pb-12">
+          <h6 className="text-sm sm:text-base">
+            Ready to start your project ?
+          </h6>
 
-          <button className="pr-[34px] pl-[22px] hover:pl-[34px] py-2.5 bg-black text-white flex items-center gap-3 group">
+          <button className="pr-[34px] pl-[22px] hover:pl-[34px] py-2.5 bg-black text-white text-sm sm:text-base flex items-center gap-3 group">
             <div className="w-0 group-hover:w-8 duration-300 h-0.5 bg-white"></div>
             GET IN TOUCH
           </button>

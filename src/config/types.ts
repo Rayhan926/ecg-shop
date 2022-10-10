@@ -27,4 +27,5 @@ export type Menu = {
   text: string;
   url: string;
   pageKey: string;
+  isHashUrl?: boolean;
 };

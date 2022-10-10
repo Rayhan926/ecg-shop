@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { ComponentProps, useState } from 'react';
 import { HiArrowNarrowLeft } from 'react-icons/hi';
 
+const textStyle =
+  'font-primary text-[16px] leading-[18px] lg:text-[18px] lg:leading-[20px] text-black block';
+
 const Menus = () => {
   const [isOpenSubMenu, setisOpenSubMenu] = useState(false);
   const [activeSubMenuKey, setActiveSubMenuKey] = useState<string | null>(null);
@@ -38,7 +41,12 @@ const Menus = () => {
         <Menu text="Services" onClick={() => setSubmenuKey('services')} />
 
         <Link href={'/get-a-quote'}>
-          <a className="font-primary text-[16px] leading-[18px] lg:text-[18px] lg:leading-[20px] text-black py-4 pr-8 pl-[68px] block border-b border-gray-light">
+          <a
+            className={cx(
+              'py-4 pr-8 pl-[68px] border-b border-gray-light',
+              textStyle,
+            )}
+          >
             Get a Qoute
           </a>
         </Link>
@@ -57,13 +65,35 @@ const Menus = () => {
 
         {menus
           .filter((menu) => menu.pageKey === activeSubMenuKey)
-          .map((menu, i) => (
-            <Link href={menu.url} key={i}>
-              <a className="font-primary text-[16px] leading-[18px] lg:text-[18px] lg:leading-[20px] text-black py-4 px-8 block border-b border-gray-light">
+          .map((menu, i) => {
+            if (menu.isHashUrl) {
+              <a
+                onClick={(e) => {
+                  e.preventDefault();
+                }}
+                href={menu.url}
+                key={i}
+                className={cx(
+                  'py-4 px-8 border-b border-gray-light',
+                  textStyle,
+                )}
+              >
                 {menu.text}
-              </a>
-            </Link>
-          ))}
+              </a>;
+            }
+            return (
+              <Link href={menu.url} key={i}>
+                <a
+                  className={cx(
+                    'py-4 px-8 border-b border-gray-light',
+                    textStyle,
+                  )}
+                >
+                  {menu.text}
+                </a>
+              </Link>
+            );
+          })}
       </div>
       {/** Submenus --End-- */}
     </div>
@@ -82,9 +112,7 @@ const Menu = ({ text, ...props }: MenuProps) => {
       className="flex items-center px-8 py-4 gap-3 border-b border-gray-light first:border-t cursor-pointer"
     >
       <PlusIcon />
-      <p className="font-primary text-[16px] leading-[18px] lg:text-[18px] lg:leading-[20px] text-black ">
-        {text}
-      </p>
+      <p className={textStyle}>{text}</p>
     </div>
   );
 };
