@@ -1,6 +1,7 @@
 import CardsRendered from '@components/CardsRendered';
 import CommonPageLayout from '@components/CommonPageLayout';
 import Divider from '@components/Divider';
+import GetInTouchFooter from '@components/GetInTouchFooter';
 import { whatWeDoCards } from '@config/constants';
 
 const AboutUs = () => {
@@ -59,7 +60,7 @@ const AboutUs = () => {
           </p>
         </div>
 
-        <div className="mt-9 lg:mt-12 mb-5 lg:mb-8">
+        <div className="mt-9 lg:mt-12 pb-5 lg:pb-8 border-b border-gray-light mb-g lg:mb-8">
           <iframe
             src="https://myhub.autodesk360.com/ue283d8b2/shares/public/SH7f1edQT22b515c761ef57601e086f95852?mode=embed"
             className="w-full aspect-video"
@@ -67,20 +68,7 @@ const AboutUs = () => {
             allowFullScreen={true}
           ></iframe>
         </div>
-
-        <Divider />
-        <Divider className="mb-6 mt-9 lg:mt-10" />
-
-        <div className="flex flex-col sm:flex-row justify-center gap-3 sm:justify-between items-center pb-12">
-          <h6 className="text-sm sm:text-base">
-            Ready to start your project ?
-          </h6>
-
-          <button className="pr-[34px] pl-[22px] hover:pl-[34px] py-2.5 bg-black text-white text-sm sm:text-base flex items-center gap-3 group">
-            <div className="w-0 group-hover:w-8 duration-300 h-0.5 bg-white"></div>
-            GET IN TOUCH
-          </button>
-        </div>
+        <GetInTouchFooter />
       </CommonPageLayout>
     </>
   );

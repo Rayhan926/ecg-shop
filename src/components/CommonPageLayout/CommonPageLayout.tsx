@@ -9,9 +9,12 @@ const CommonPageLayout = ({
     <>
       <div
         style={{ backgroundImage: `url("${bannerImgSrc}")` }}
-        className="w-full h-[270px] lg:h-[500px] bg-slate-300 bg-cover bg-center pl-5 lg:pl-0 pr-0 lg:pr-[158px] flex items-center lg:justify-end"
+        className="w-full h-[270px] lg:h-[500px] bg-slate-300 bg-cover bg-center pl-5 lg:pl-0 pr-0 lg:pr-[158px] flex items-center lg:justify-end relative"
       >
-        <h1 className="text-white/50 font-extrabold text-[40px] leading-[44px] lg:text-[76px] lg:leading-[84px] font-primary uppercase">
+        {/** Overlay --Start-- */}
+        <div className="absolute top-0 left-0 w-full h-full bg-[#292929] opacity-30 z-[2]"></div>
+        {/** Overlay --End-- */}
+        <h1 className="text-white/50 font-extrabold text-[40px] leading-[44px] lg:text-[76px] lg:leading-[84px] font-primary uppercase relative z-[4]">
           {pageTitle}
         </h1>
       </div>

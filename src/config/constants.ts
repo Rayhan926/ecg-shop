@@ -34,11 +34,11 @@ export const menus: Menu[] = [
   },
   {
     text: 'Environmental',
-    url: '/environment',
+    url: '/environmental',
     pageKey: 'services',
   },
   {
-    text: 'InTown Fix',
+    text: 'Intown Fix',
     url: '/intown-fix',
     pageKey: 'services',
   },
