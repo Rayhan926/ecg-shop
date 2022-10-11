@@ -1,5 +1,6 @@
 import PlusIcon from '@components/Svgs/PlusIcon';
 import { menus } from '@config/constants';
+import useMobileSidebar from '@hooks/useMobileSidebar';
 import { cx } from '@utils';
 import Link from 'next/link';
 import { ComponentProps, useState } from 'react';
@@ -9,6 +10,7 @@ const textStyle =
   'font-primary text-[16px] leading-[18px] lg:text-[18px] lg:leading-[20px] text-black block';
 
 const Menus = () => {
+  const { closeMenu } = useMobileSidebar();
   const [isOpenSubMenu, setisOpenSubMenu] = useState(false);
   const [activeSubMenuKey, setActiveSubMenuKey] = useState<string | null>(null);
 
@@ -42,6 +44,7 @@ const Menus = () => {
 
         <Link href={'/get-a-quote'}>
           <a
+            onClick={closeMenu}
             className={cx(
               'py-4 pr-8 pl-[68px] border-b border-gray-light',
               textStyle,
@@ -66,24 +69,10 @@ const Menus = () => {
         {menus
           .filter((menu) => menu.pageKey === activeSubMenuKey)
           .map((menu, i) => {
-            if (menu.isHashUrl) {
-              <a
-                onClick={(e) => {
-                  e.preventDefault();
-                }}
-                href={menu.url}
-                key={i}
-                className={cx(
-                  'py-4 px-8 border-b border-gray-light',
-                  textStyle,
-                )}
-              >
-                {menu.text}
-              </a>;
-            }
             return (
               <Link href={menu.url} key={i}>
                 <a
+                  onClick={closeMenu}
                   className={cx(
                     'py-4 px-8 border-b border-gray-light',
                     textStyle,

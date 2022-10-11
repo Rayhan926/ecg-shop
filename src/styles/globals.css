@@ -32,6 +32,9 @@
   .__body_text {
     @apply font-gilroy-regular text-[14px] lg:text-[18px] leading-[170%] text-[#555555];
   }
+  .__input {
+    @apply outline-none border-b border-gray-light pb-4 px-2.5 placeholder:text-gray-1 placeholder:opacity-100 font-gilroy-regular w-full block focus:border-black/20 duration-300 text-[14px] lg:text-[16px];
+  }
 }
 
 .__h2::before {
@@ -45,4 +48,19 @@ html {
 
 body {
   @apply bg-body-gray;
+}
+
+.leaflet-popup-content-wrapper {
+  @apply !bg-[#292929]/90 !rounded-none !shadow-none;
+}
+
+.leaflet-popup-content {
+  @apply !text-white !font-gilroy-regular text-center !m-0 !py-7 !px-5 lg:!p-[35px] !w-[272px] lg:!w-[316px];
+}
+.leaflet-popup-close-button {
+  @apply !text-white !text-xl;
+}
+.leaflet-popup-tip-container,
+.leaflet-control-attribution.leaflet-control {
+  @apply hidden;
 }

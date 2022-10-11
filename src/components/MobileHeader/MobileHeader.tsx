@@ -1,15 +1,15 @@
 import SidebarContent from '@components/SidebarContent';
 import SiteLogo from '@components/SiteLogo/SiteLogo';
 import MenuIcon from '@components/Svgs/MenuIcon';
+import useMobileSidebar from '@hooks/useMobileSidebar';
 import { cx } from '@utils';
-import { useState } from 'react';
 
 const MobileHeader = () => {
-  const [isOpenSidebar, setIsOpenSidebar] = useState(false);
+  const { isOpen, setIsOpen, closeMenu } = useMobileSidebar();
   return (
     <>
       <header className="px-5 relative h-[54px] bg-body-gray z-[3] flex items-center lg:hidden shrink-0">
-        <button onClick={() => setIsOpenSidebar(true)}>
+        <button onClick={() => setIsOpen(true)}>
           <MenuIcon />
         </button>
 
@@ -20,12 +20,10 @@ const MobileHeader = () => {
 
       <div
         id="overlay"
-        onClick={(e: any) =>
-          e.target.id === 'overlay' && setIsOpenSidebar(false)
-        }
+        onClick={(e: any) => e.target.id === 'overlay' && closeMenu()}
         className={cx(
-          'fixed top-0 left-0 w-full h-full bg-[#545454]/80 z-[100] duration-200 lg:hidden',
-          isOpenSidebar
+          'fixed top-0 left-0 w-full h-full bg-[#545454]/80 z-[999999] duration-200 lg:hidden',
+          isOpen
             ? 'pointer-events-auto opacity-100'
             : 'pointer-events-none opacity-0 delay-500',
         )}
@@ -33,11 +31,11 @@ const MobileHeader = () => {
         <div
           className={cx(
             'h-full bg-white w-[80%] duration-500 flex flex-col',
-            isOpenSidebar ? 'translate-x-0 delay-200' : '-translate-x-full',
+            isOpen ? 'translate-x-0 delay-200' : '-translate-x-full',
           )}
         >
           <div className="px-5 relative h-[54px] flex items-center lg:hidden shrink-0">
-            <button onClick={() => setIsOpenSidebar(false)}>
+            <button onClick={closeMenu}>
               <MenuIcon />
             </button>
 

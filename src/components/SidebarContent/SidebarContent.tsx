@@ -2,8 +2,10 @@ import Menus from '@components/Menus';
 import SiteLogo from '@components/SiteLogo/SiteLogo';
 import FacebookIcon from '@components/Svgs/FacebookIcon';
 import InstagramIcon from '@components/Svgs/InstagramIcon';
+import { contact } from '@config/constants';
 
 const SidebarContent = () => {
+  const { addressSidebar, email, phone } = contact;
   return (
     <div className="h-full flex flex-col lg:pt-[60px] overflow-y-auto gap-4">
       <div>
@@ -25,16 +27,15 @@ const SidebarContent = () => {
 
           <div className="space-y-4">
             <p className="text-[14px] lg:text-[16px] leading-[19px] text-black font-gilroy-regular">
-              Address :{' '}
-              <span className="text-gray-2">2103 Faulkner Rd NE, Atlanta</span>
+              Address : <span className="text-gray-2">{addressSidebar}</span>
             </p>
             <p className="text-[14px] lg:text-[16px] leading-[19px] text-black font-gilroy-regular">
-              Phone : <span className="text-gray-2">404-858-7391</span>
+              Phone : <span className="text-gray-2">{phone}</span>
             </p>
             <p className="text-[14px] lg:text-[16px] leading-[19px] text-black font-gilroy-regular">
               Email :{' '}
-              <a className="text-gray-2" href="mailto:info@earthcoregroup.com">
-                info@earthcoregroup.com
+              <a className="text-gray-2" href={`mailto:${email}`}>
+                {email}
               </a>
             </p>
           </div>

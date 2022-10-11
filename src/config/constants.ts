@@ -8,6 +8,12 @@ export const classes = {
 };
 
 export const APP_NAME = 'EarthCore Group';
+export const contact = {
+  phone: '404-858-7391',
+  email: 'info@earthcoregroup.com',
+  addressSidebar: '2103 Faulkner Rd NE, Atlanta',
+  addressContactPage: '2103 Faulkner Rd NE Atlanta, GA',
+};
 
 export const menus: Menu[] = [
   {
@@ -46,6 +52,11 @@ export const menus: Menu[] = [
     text: 'Commercial',
     url: '/commercial',
     pageKey: 'services',
+  },
+  {
+    text: 'Get a Quote',
+    url: '/get-a-quote',
+    pageKey: '',
   },
 ];
 
