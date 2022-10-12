@@ -1,7 +1,7 @@
 import CardsRendered from '@components/CardsRendered';
 import CommonPageLayout from '@components/CommonPageLayout';
 import GetInTouchFooter from '@components/GetInTouchFooter';
-import { whatWeDoCards } from '@config/constants';
+import { environmentalCards } from '@config/constants';
 
 const Environmental = () => {
   return (
@@ -19,7 +19,7 @@ const Environmental = () => {
       </p>
 
       <div className="my-9 lg:my-12 pt-9 lg:pt-12 border-t border-gray-light">
-        <CardsRendered cards={whatWeDoCards} />
+        <CardsRendered cards={environmentalCards} />
       </div>
 
       <GetInTouchFooter />

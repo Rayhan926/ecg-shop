@@ -36,6 +36,11 @@
       "@layouts/*": ["./src/layouts/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/views/GetAQuote/components/Map/Map.jsx"
+  ],
   "exclude": ["node_modules"]
 }

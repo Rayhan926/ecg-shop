@@ -3,6 +3,9 @@ import CommonPageLayout from '@components/CommonPageLayout';
 import Divider from '@components/Divider';
 import GetInTouchFooter from '@components/GetInTouchFooter';
 import { whatWeDoCards } from '@config/constants';
+import { scrollTo } from '@utils';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 const AboutUs = () => {
   return (
@@ -11,7 +14,9 @@ const AboutUs = () => {
         bannerImgSrc="/img/about-header.png"
         pageTitle="About Us"
       >
-        <h2 className="__h2">Creating an Environment that Inspires You</h2>
+        <h2 className="__h2 scroll-mt-16" id="about-us">
+          Creating an Environment that Inspires You
+        </h2>
         <p className="__body_text mt-5">
           Earthcore Group (ECG+) is a rapidly growing, super exciting, highly
           versatile small business, serving the diverse needs of the Atlanta
@@ -33,7 +38,7 @@ const AboutUs = () => {
 
         <Divider className="mt-12 mb-8" />
 
-        <h2 className="__h2" id="what-we-do">
+        <h2 className="__h2 scroll-mt-20" id="what-we-do">
           What We Do
         </h2>
 
@@ -42,7 +47,9 @@ const AboutUs = () => {
         </div>
 
         <div className="mt-11 lg:mt-[60px]">
-          <h2 className="__h2">Down to the details</h2>
+          <h2 className="__h2 scroll-mt-20" id="our-process">
+            Down to the details
+          </h2>
           <p className="mt-5 __body_text">
             Earthcore Group’s architects, engineers, and other professionals
             take pride in executing all facets of the design process with

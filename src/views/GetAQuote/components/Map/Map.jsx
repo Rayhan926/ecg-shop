@@ -1,13 +1,7 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { useEffect, useRef } from 'react';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-
-// const iconPerson = new L.Icon({
-//   iconUrl: require('../../assets/cropped-ecg-fav.png'),
-//   iconRetinaUrl: require('../../assets/cropped-ecg-fav.png'),
-//   iconSize: new L.Point(30, 30),
-//   className: 'leaflet-div-icon',
-// });
 
 const MarkerIcon = `data:image/svg+xml;utf8,${encodeURIComponent(`<?xml version="1.0" encoding="iso-8859-1"?>
 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -30,6 +24,30 @@ const BoatIcon = L.icon({
 });
 
 const Map = () => {
+  const mapRef = useRef(null);
+  const markerRef = useRef(null);
+
+  const onClickShowMarker = () => {
+    const map = mapRef.current;
+    if (!map) {
+      return;
+    }
+    const marker = markerRef.current;
+    if (marker) {
+      marker?.openPopup();
+    }
+  };
+
+  useEffect(() => {
+    let ff = setTimeout(() => {
+      onClickShowMarker();
+    }, 0);
+
+    return () => {
+      clearTimeout(ff);
+    };
+  }, []);
+
   return (
     <div className="w-full h-[270px] lg:h-[500px] bg-white z-10 relative overflow-hidden">
       <MapContainer
@@ -41,10 +59,17 @@ const Map = () => {
           width: '100%',
           height: '100%',
         }}
+        whenReady={(map) => {
+          mapRef.current = map;
+        }}
       >
         <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png" />
-        <Marker position={[33.812324, -84.357029]} icon={BoatIcon}>
-          <Popup>2103 Faulkner Rf NE Atlanta, GA 3032A</Popup>
+        <Marker
+          ref={markerRef}
+          position={[33.812324, -84.357029]}
+          icon={BoatIcon}
+        >
+          <Popup offset={[0, -10]}>2103 Faulkner Rf NE Atlanta, GA 3032A</Popup>
         </Marker>
       </MapContainer>
     </div>

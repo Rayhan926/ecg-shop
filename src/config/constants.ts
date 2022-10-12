@@ -18,8 +18,9 @@ export const contact = {
 export const menus: Menu[] = [
   {
     text: 'About Us',
-    url: '/about-us',
+    url: '/about-us/#about-us',
     pageKey: 'about-us',
+    isHashUrl: true,
   },
   {
     text: 'What We Do',
@@ -66,15 +67,87 @@ export const whatWeDoCards: CardWithImageProps[] = [
     label: 'Residential',
   },
   {
-    imgSrc: '/img/residential.png',
-    label: 'Residential',
+    imgSrc: '/img/env.png',
+    label: 'Environmental',
   },
   {
-    imgSrc: '/img/residential.png',
-    label: 'Residential',
+    imgSrc: '/img/commercial.png',
+    label: 'Commercial',
   },
   {
-    imgSrc: '/img/residential.png',
-    label: 'Residential',
+    imgSrc: '/img/handy-man.png',
+    label: 'Intown Fix',
+  },
+];
+
+export const residentialCards: CardWithImageProps[] = [
+  {
+    imgSrc: '/img/water-features.png',
+    label: 'Water Features',
+  },
+  {
+    imgSrc: '/img/fire-features.png',
+    label: 'Fire Features',
+  },
+  {
+    imgSrc: '/img/retaining-walls.png',
+    label: 'Retaining Walls',
+  },
+  {
+    imgSrc: '/img/patios-walkway.png',
+    label: 'Patios & Walkways',
+  },
+  {
+    imgSrc: '/img/specialty-drainage.png',
+    label: 'Speciality Drainage',
+  },
+  {
+    imgSrc: '/img/landscape-construction.png',
+    label: 'Landscape Construction',
+  },
+];
+
+export const environmentalCards: CardWithImageProps[] = [
+  {
+    imgSrc: '/img/phase-1.png',
+    label: 'Environmental Site Assessment Phase 1',
+  },
+  {
+    imgSrc: '/img/phase-2.png',
+    label: 'Environmental Site Assessment Phase 2',
+  },
+  {
+    imgSrc: '/img/er.png',
+    label: 'Environmental Remediation',
+  },
+  {
+    imgSrc: '/img/re.png',
+    label: 'Real Estate & Industrial Consultaion',
+  },
+];
+export const intownFixCards: CardWithImageProps[] = [
+  {
+    imgSrc: '/img/remodeling.png',
+    label: 'Remodeling Services',
+  },
+  {
+    imgSrc: '/img/handy-man.png',
+    label: 'Home Renovating & Handyman',
+  },
+  {
+    imgSrc: '/img/roofing-1.png',
+    label: 'Roofing Services',
+  },
+  {
+    imgSrc: '/img/ha-1.png',
+    label: 'Heating & Air Conditioning',
+  },
+  {
+    imgSrc: '/img/air.png',
+    label: 'Heating',
+  },
+  {
+    imgSrc: '/img/indoor-air.png',
+    label: 'Indoor Air Quality',
   },
 ];

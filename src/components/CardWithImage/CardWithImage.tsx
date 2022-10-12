@@ -4,7 +4,7 @@ import Image from 'next/image';
 const CardWithImage = ({ imgSrc, label }: CardWithImageProps) => {
   return (
     <div className="relative overflow-hidden group cursor-pointer">
-      <div className="group-hover:scale-[1.05] duration-500">
+      <div className="group-hover:scale-[1.05] duration-500 bg-gray-light">
         <Image
           width={430}
           height={280}

@@ -14,7 +14,7 @@ const Commercial = () => {
         projects. These services include:
       </p>
 
-      <ul className="[&>li]:list-item [&>li]:list-disc __body_text mt-8 lg:mt-10 [&>li]:list-inside pl-2 pb-8 lg:pb-10 border-b border-gray-light mb-8 lg:mb-12">
+      <ul className="[&>li]:list-item [&>li]:list-disc __body_text mt-8 lg:mt-10 pb-8 lg:pb-10 border-b border-gray-light mb-8 lg:mb-12 &>li]:list-outside pl-4 lg:pl-6">
         <li>Tree Harvesting</li>
         <li>Land Clearing & Grubbing</li>
         <li>Site Grading</li>

@@ -3,6 +3,7 @@ import { menus } from '@config/constants';
 import useMobileSidebar from '@hooks/useMobileSidebar';
 import { cx } from '@utils';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { ComponentProps, useState } from 'react';
 import { HiArrowNarrowLeft } from 'react-icons/hi';
 
@@ -10,6 +11,7 @@ const textStyle =
   'font-primary text-[16px] leading-[18px] lg:text-[18px] lg:leading-[20px] text-black block';
 
 const Menus = () => {
+  const router = useRouter();
   const { closeMenu } = useMobileSidebar();
   const [isOpenSubMenu, setisOpenSubMenu] = useState(false);
   const [activeSubMenuKey, setActiveSubMenuKey] = useState<string | null>(null);
@@ -69,6 +71,21 @@ const Menus = () => {
         {menus
           .filter((menu) => menu.pageKey === activeSubMenuKey)
           .map((menu, i) => {
+            if (menu.isHashUrl && router.pathname === '/about-us') {
+              return (
+                <a
+                  key={i}
+                  onClick={closeMenu}
+                  className={cx(
+                    'py-4 px-8 border-b border-gray-light',
+                    textStyle,
+                  )}
+                  href={`#${menu.url.split('#')[1]}`}
+                >
+                  {menu.text}
+                </a>
+              );
+            }
             return (
               <Link href={menu.url} key={i}>
                 <a
