@@ -21,6 +21,9 @@ export type CommonPageLayoutProps = {
 export type CardWithImageProps = {
   imgSrc: string;
   label: string;
+  onClick?: () => void;
+  isActive?: boolean;
+  info?: ReactNode;
 };
 
 export type Menu = {
