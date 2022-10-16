@@ -50,10 +50,20 @@ const SidebarContent = () => {
         </h6>
 
         <div className="mt-3 lg:mt-5 flex gap-2 lg:gap-4">
-          <a href="#" className="w-6 lg:w-7">
+          <a
+            href="https://facebook.com/earthcoregroup"
+            target={'_blank'}
+            className="w-6 lg:w-7"
+            rel="noreferrer"
+          >
             <FacebookIcon />
           </a>
-          <a href="#" className="w-6 lg:w-7">
+          <a
+            href="https://www.instagram.com/earthcoregroup/"
+            target={'_blank'}
+            className="w-6 lg:w-7"
+            rel="noreferrer"
+          >
             <InstagramIcon />
           </a>
         </div>

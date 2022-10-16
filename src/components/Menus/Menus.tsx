@@ -52,7 +52,7 @@ const Menus = () => {
               textStyle,
             )}
           >
-            Get a Qoute
+            Get a Quote
           </a>
         </Link>
       </div>

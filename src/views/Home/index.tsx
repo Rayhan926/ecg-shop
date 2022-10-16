@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="grow flex flex-col relative">
       <VideoPlayer />
-      <div className="flex flex-col justify-center items-center text-center absolute w-full h-full bg-[#292929]/30 text-white">
+      <div className="z-[3] flex flex-col justify-center items-center text-center absolute w-full h-full bg-[#292929]/30 text-white">
         <p className="border-b border-white pb-[18px] text-[18px] leading-[21px] lg:text-[24px] lg:leading-[28px] font-gilroy-regular px-[30px] lg:px-[65px] ">
           Restoring Atlanta
         </p>
