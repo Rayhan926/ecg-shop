@@ -1,16 +1,26 @@
 import Menus from '@components/Menus';
 import SiteLogo from '@components/SiteLogo/SiteLogo';
+import Spinner from '@components/Spinner';
 import FacebookIcon from '@components/Svgs/FacebookIcon';
 import InstagramIcon from '@components/Svgs/InstagramIcon';
 import { contact } from '@config/constants';
 import useMobileSidebar from '@hooks/useMobileSidebar';
+import usePageTransition from '@hooks/usePageTransition';
 import { IoCloseSharp } from 'react-icons/io5';
 
 const SidebarContent = () => {
+  const { show } = usePageTransition();
   const { closeMenu } = useMobileSidebar();
   const { addressSidebar, email, phone } = contact;
   return (
-    <div className="h-full flex flex-col lg:pt-[60px] overflow-y-auto gap-4">
+    <div className="h-full flex flex-col lg:pt-[60px] overflow-y-auto gap-4 relative">
+      {/** Spinner --Start-- */}
+      {show && (
+        <div className="absolute right-7 top-7">
+          <Spinner />
+        </div>
+      )}
+      {/** Spinner --End-- */}
       <div className="relative">
         <button
           className="absolute top-[60px] right-5 lg:hidden"
@@ -18,7 +28,10 @@ const SidebarContent = () => {
         >
           <IoCloseSharp size={20} />
         </button>
-        <div className="mt-14 lg:mt-0 pl-5 lg:pl-8 max-w-[160px]">
+        <div
+          className="mt-14 lg:mt-0 pl-5 lg:pl-8 max-w-[160px]"
+          onClick={closeMenu}
+        >
           <SiteLogo />
         </div>
         <p className="text-[14px] lg:text-[16px] leading-[150%] font-gilroy-regular text-black mt-6 pl-5 lg:pl-8">

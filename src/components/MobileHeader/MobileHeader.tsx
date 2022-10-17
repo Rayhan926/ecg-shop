@@ -1,5 +1,4 @@
 import SidebarContent from '@components/SidebarContent';
-import SiteLogo from '@components/SiteLogo/SiteLogo';
 import MenuIcon from '@components/Svgs/MenuIcon';
 import { APP_NAME } from '@config/constants';
 import useMobileSidebar from '@hooks/useMobileSidebar';
@@ -8,28 +7,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const MobileHeader = () => {
-  const { isOpen, setIsOpen, closeMenu } = useMobileSidebar();
+  const { isOpen, closeMenu } = useMobileSidebar();
   return (
     <>
-      <header className="px-5 relative h-[54px] bg-white border-b border-gray-light z-[3] flex items-center justify-between lg:hidden shrink-0">
-        <button onClick={() => setIsOpen(true)}>
-          <MenuIcon />
-        </button>
-
-        <div className="w-[30px]">
-          <Link href={'/'}>
-            <a className="[&>span]:!block">
-              <Image
-                width={200}
-                height={200}
-                src="/img/ecg-icon.svg"
-                alt={APP_NAME}
-              />
-            </a>
-          </Link>
-        </div>
-      </header>
-
+      <MobileHeaderTop />
       <div
         id="overlay"
         onClick={(e: any) => e.target.id === 'overlay' && closeMenu()}
@@ -66,3 +47,27 @@ const MobileHeader = () => {
 };
 
 export default MobileHeader;
+
+export const MobileHeaderTop = () => {
+  const { setIsOpen } = useMobileSidebar();
+  return (
+    <header className="px-5 relative h-[54px] bg-white border-b border-gray-light z-[3] flex items-center justify-between lg:hidden shrink-0">
+      <button onClick={() => setIsOpen(true)}>
+        <MenuIcon />
+      </button>
+
+      <div className="w-[30px]">
+        <Link href={'/'}>
+          <a className="[&>span]:!block">
+            <Image
+              width={200}
+              height={200}
+              src="/img/ecg-icon.svg"
+              alt={APP_NAME}
+            />
+          </a>
+        </Link>
+      </div>
+    </header>
+  );
+};

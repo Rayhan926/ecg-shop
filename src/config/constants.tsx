@@ -3,7 +3,7 @@ import { CardWithImageProps, Menu } from './types';
 export const classes = {
   sidebarWrapper: 'w-[358px]',
   pageTransitionWrapper:
-    'lg:left-[358px] w-full lg:w-[calc(100%-358px)] h-[calc(100%-54px)] lg:h-screen top-[54px] lg:top-0 ',
+    'lg:left-[358px] w-full lg:w-[calc(100%-358px)] h-screen top-0 ',
   layoutWrapper: 'lg:pl-[358px]',
   header:
     'left-0 w-full lg:w-[calc(100%-calc(358px+32px))] lg:left-[calc(358px+32px)]',

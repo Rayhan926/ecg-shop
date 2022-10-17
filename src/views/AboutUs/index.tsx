@@ -3,18 +3,36 @@ import CommonPageLayout from '@components/CommonPageLayout';
 import Divider from '@components/Divider';
 import GetInTouchFooter from '@components/GetInTouchFooter';
 import { whatWeDoCards } from '@config/constants';
-import { scrollTo } from '@utils';
-import { useRouter } from 'next/router';
+import useHeaderHeight from '@hooks/useHeaderHeight';
+import usePageTransition from '@hooks/usePageTransition';
 import { useEffect } from 'react';
 
 const AboutUs = () => {
+  const { show } = usePageTransition();
+  const { headerHeight } = useHeaderHeight();
+  useEffect(() => {
+    if (show || !headerHeight) return;
+
+    const extraOffest = headerHeight + 20;
+
+    const top =
+      document.querySelector('[data-id="about-us"]')?.getBoundingClientRect()
+        .top || 0;
+
+    const fromTop = top - extraOffest || 0;
+    console.log(fromTop, top, headerHeight);
+    setTimeout(() => {
+      if (fromTop > 0) window.scrollTo(0, fromTop);
+    }, 100);
+  }, [headerHeight, show]);
+
   return (
     <>
       <CommonPageLayout
         bannerImgSrc="/img/about-header.png"
         pageTitle="About Us"
       >
-        <h2 className="__h2 scroll-mt-16" id="about-us">
+        <h2 className="__h2" data-id="about-us">
           Creating an Environment that Inspires You
         </h2>
         <p className="__body_text mt-5">
