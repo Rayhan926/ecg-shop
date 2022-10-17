@@ -38,17 +38,17 @@
 
   /* Info Title */
   .i_t {
-    @apply font-primary text-[15px] leading-[18px] pb-2.5;
+    @apply font-primary text-[16px] leading-[18px] pb-2.5;
   }
   /* Info Description */
   .i_d {
-    @apply text-[12px] leading-[20px] font-gilroy-regular text-gray-1 pb-2.5;
+    @apply text-[14px] leading-[20px] font-gilroy-regular text-gray-1 pb-2.5;
   }
   .i_d_b {
-    @apply text-[12px] leading-[20px] font-gilroy-regular text-black pb-2.5;
+    @apply text-[14px] leading-[20px] font-gilroy-regular text-black pb-2.5;
   }
   .i_ul {
-    @apply text-[12px] leading-[20px] font-gilroy-regular text-gray-2 p-2.5 pt-1 pl-4;
+    @apply text-[14px] leading-[20px] font-gilroy-regular text-gray-2 p-2.5 pt-1 pl-4;
   }
   .i_ul li {
     @apply list-item list-[circle] list-outside pl-2;

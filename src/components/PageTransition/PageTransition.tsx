@@ -1,19 +1,24 @@
 import { classes } from '@config/constants';
+import useMobileSidebar from '@hooks/useMobileSidebar';
+import usePageTransition from '@hooks/usePageTransition';
 import { cx } from '@utils';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 const PageTransition = () => {
-  const [show, setShow] = useState(false);
-  //   const { show } = usePageTransition();
+  const { isOpen } = useMobileSidebar();
+  const { show, setShow } = usePageTransition();
   const router = useRouter();
 
   useEffect(() => {
-    const onStart = () => {
+    const onStart = (currentPath: any) => {
+      if (currentPath === router.pathname) return;
       setShow(true);
     };
-    const onEnd = () => {
-      setShow(false);
+    const onEnd = (currentPath: any) => {
+      setTimeout(() => {
+        setShow(false);
+      }, 2000);
     };
 
     router.events.on('routeChangeStart', onStart);
@@ -23,16 +28,16 @@ const PageTransition = () => {
       router.events.off('routeChangeStart', onStart);
       router.events.off('routeChangeComplete', onEnd);
     };
-  }, [router.events]);
+  }, [router.events, router.pathname, setShow]);
 
   return (
     <div
       className={cx(
-        'fixed top-0 h-screen bg-red-600 z-[999999999] duration-500',
+        'fixed bg-red-600 z-[999999999]',
         classes.pageTransitionWrapper,
-        show
+        show && !isOpen
           ? 'opacity-100 pointer-events-auto'
-          : 'opacity-0 pointer-events-none',
+          : 'opacity-0 pointer-events-none duration-500',
       )}
     ></div>
   );

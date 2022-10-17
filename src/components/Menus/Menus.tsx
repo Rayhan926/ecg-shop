@@ -29,7 +29,7 @@ const Menus = () => {
       className={cx(
         'mt-8 lg:mt-10 overflow-hidden relative duration-500',
         !isOpenSubMenu
-          ? 'h-[168px]'
+          ? 'h-[221px]'
           : activeSubMenuKey === 'about-us'
           ? 'h-[180px] lg:h-[186px]'
           : 'h-[230px] lg:h-[239px]',
@@ -42,8 +42,30 @@ const Menus = () => {
         )}
       >
         <Menu text="About Us" onClick={() => setSubmenuKey('about-us')} />
-        <Menu text="Services" onClick={() => setSubmenuKey('services')} />
+        <Link href={'/residential'}>
+          <a
+            onClick={closeMenu}
+            className={cx(
+              'py-4 pr-8 pl-[68px] border-b border-gray-light',
+              textStyle,
+            )}
+          >
+            Residential
+          </a>
+        </Link>
 
+        <a
+          href="https://www.store.earthcoregroup.com"
+          target={'_blank'}
+          rel="noreferrer"
+          onClick={closeMenu}
+          className={cx(
+            'py-4 pr-8 pl-[68px] border-b border-gray-light',
+            textStyle,
+          )}
+        >
+          Store
+        </a>
         <Link href={'/get-a-quote'}>
           <a
             onClick={closeMenu}

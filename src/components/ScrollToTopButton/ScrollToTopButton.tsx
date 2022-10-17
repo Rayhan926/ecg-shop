@@ -38,7 +38,7 @@ const ScrollToTopButton = () => {
     <button
       ref={buttonRef}
       className={cx(
-        'fixed bottom-5 right-5 z-[999] bg-white w-10 lg:w-12 aspect-square flex justify-center items-center shadow-md hover:scale-110 duration-200',
+        'fixed bottom-5 right-5 z-[9999] bg-white w-10 lg:w-12 aspect-square flex justify-center items-center shadow-md hover:scale-110 duration-200',
         showBtn
           ? 'opacity-100 pointer-events-auto'
           : 'opacity-0 pointer-events-none',
