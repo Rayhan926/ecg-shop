@@ -3,28 +3,10 @@ import CommonPageLayout from '@components/CommonPageLayout';
 import Divider from '@components/Divider';
 import GetInTouchFooter from '@components/GetInTouchFooter';
 import { whatWeDoCards } from '@config/constants';
-import useHeaderHeight from '@hooks/useHeaderHeight';
-import usePageTransition from '@hooks/usePageTransition';
-import { useEffect } from 'react';
+import useScrollToSection from '@hooks/useScrollToSection';
 
 const AboutUs = () => {
-  const { show } = usePageTransition();
-  const { headerHeight } = useHeaderHeight();
-  useEffect(() => {
-    if (show || !headerHeight) return;
-
-    const extraOffest = headerHeight + 20;
-
-    const top =
-      document.querySelector('[data-id="about-us"]')?.getBoundingClientRect()
-        .top || 0;
-
-    const fromTop = top - extraOffest || 0;
-    console.log(fromTop, top, headerHeight);
-    setTimeout(() => {
-      if (fromTop > 0) window.scrollTo(0, fromTop);
-    }, 100);
-  }, [headerHeight, show]);
+  useScrollToSection();
 
   return (
     <>
@@ -32,7 +14,7 @@ const AboutUs = () => {
         bannerImgSrc="/img/about-header.png"
         pageTitle="About Us"
       >
-        <h2 className="__h2" data-id="about-us">
+        <h2 className="__h2 scroll-mt-20" data-id="about-us">
           Creating an Environment that Inspires You
         </h2>
         <p className="__body_text mt-5">
@@ -56,7 +38,7 @@ const AboutUs = () => {
 
         <Divider className="mt-12 mb-8" />
 
-        <h2 className="__h2 scroll-mt-20" id="what-we-do">
+        <h2 className="__h2 scroll-mt-20" data-id="what-we-do">
           What We Do
         </h2>
 
@@ -65,7 +47,7 @@ const AboutUs = () => {
         </div>
 
         <div className="mt-11 lg:mt-[60px]">
-          <h2 className="__h2 scroll-mt-20" id="our-process">
+          <h2 className="__h2 scroll-mt-20" data-id="our-process">
             Down to the details
           </h2>
           <p className="mt-5 __body_text">

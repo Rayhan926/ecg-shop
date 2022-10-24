@@ -10,6 +10,11 @@ import { HiArrowNarrowLeft } from 'react-icons/hi';
 const textStyle =
   'font-primary text-[16px] leading-[18px] lg:text-[18px] lg:leading-[20px] text-black block';
 
+const navLinkStyle = cx(
+  'py-4 pr-8 pl-[68px] border-b border-gray-light',
+  textStyle,
+);
+
 const Menus = () => {
   const router = useRouter();
   const { closeMenu } = useMobileSidebar();
@@ -42,15 +47,15 @@ const Menus = () => {
         )}
       >
         <Menu text="About Us" onClick={() => setSubmenuKey('about-us')} />
-        <Link href={'/residential'}>
-          <a
-            onClick={closeMenu}
-            className={cx(
-              'py-4 pr-8 pl-[68px] border-b border-gray-light',
-              textStyle,
-            )}
-          >
+        <Link href={'/residential/#residential'}>
+          <a onClick={closeMenu} className={navLinkStyle}>
             Residential
+          </a>
+        </Link>
+
+        <Link href={'/get-a-quote'}>
+          <a onClick={closeMenu} className={navLinkStyle}>
+            Get a Quote
           </a>
         </Link>
 
@@ -59,24 +64,10 @@ const Menus = () => {
           target={'_blank'}
           rel="noreferrer"
           onClick={closeMenu}
-          className={cx(
-            'py-4 pr-8 pl-[68px] border-b border-gray-light',
-            textStyle,
-          )}
+          className={navLinkStyle}
         >
           Store
         </a>
-        <Link href={'/get-a-quote'}>
-          <a
-            onClick={closeMenu}
-            className={cx(
-              'py-4 pr-8 pl-[68px] border-b border-gray-light',
-              textStyle,
-            )}
-          >
-            Get a Quote
-          </a>
-        </Link>
       </div>
 
       {/** Submenus --Start-- */}
@@ -93,21 +84,21 @@ const Menus = () => {
         {menus
           .filter((menu) => menu.pageKey === activeSubMenuKey)
           .map((menu, i) => {
-            if (menu.isHashUrl && router.pathname === '/about-us') {
-              return (
-                <a
-                  key={i}
-                  onClick={closeMenu}
-                  className={cx(
-                    'py-4 px-8 border-b border-gray-light',
-                    textStyle,
-                  )}
-                  href={`#${menu.url.split('#')[1]}`}
-                >
-                  {menu.text}
-                </a>
-              );
-            }
+            // if (menu.isHashUrl && router.pathname === '/about-us') {
+            //   return (
+            //     <a
+            //       key={i}
+            //       onClick={closeMenu}
+            //       className={cx(
+            //         'py-4 px-8 border-b border-gray-light',
+            //         textStyle,
+            //       )}
+            //       href={`#${menu.url.split('#')[1]}`}
+            //     >
+            //       {menu.text}
+            //     </a>
+            //   );
+            // }
             return (
               <Link href={menu.url} key={i}>
                 <a

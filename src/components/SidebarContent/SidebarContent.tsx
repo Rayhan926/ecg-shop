@@ -73,14 +73,6 @@ const SidebarContent = () => {
 
         <div className="mt-3 lg:mt-5 flex gap-2 lg:gap-4">
           <a
-            href="https://facebook.com/earthcoregroup"
-            target={'_blank'}
-            className="w-6 lg:w-7"
-            rel="noreferrer"
-          >
-            <FacebookIcon />
-          </a>
-          <a
             href="https://www.instagram.com/earthcoregroup/"
             target={'_blank'}
             className="w-6 lg:w-7"
@@ -88,13 +80,21 @@ const SidebarContent = () => {
           >
             <InstagramIcon />
           </a>
+          <a
+            href="https://facebook.com/earthcoregroup"
+            target={'_blank'}
+            className="w-6 lg:w-7"
+            rel="noreferrer"
+          >
+            <FacebookIcon />
+          </a>
         </div>
       </div>
       {/** Find Us --End-- */}
 
       {/** Copyrights --Start-- */}
-      <div className="mt-auto py-5 px-8 text-center border-t border-gray-light text-[14px] lg:text-[16px] text-black font-gilroy-regular">
-        <p>2022 © EARTHCORE GROUP LLC</p>
+      <div className="mt-auto py-5 px-8 text-center border-t border-gray-light text-[11px] lg:text-[12px] text-black font-gilroy-regular">
+        <p>2022 © EarthCore Group LLC.</p>
       </div>
       {/** Copyrights --End-- */}
     </div>
