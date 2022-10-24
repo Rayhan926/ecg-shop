@@ -13,7 +13,7 @@ const CommonPageLayout = ({
   useEffect(() => {
     gsap.to(pageTitleRef.current, {
       scrollTrigger: {
-        trigger: wrapperRef.current,
+        trigger: wrapperRef.current!,
         scrub: 0.5,
         start: 'top top',
         end: 'bottom top',

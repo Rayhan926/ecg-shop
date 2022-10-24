@@ -16,7 +16,6 @@ const useScrollToSection = () => {
       dom?.scrollIntoView({
         behavior: 'smooth',
       });
-      console.log(dom, hash);
     },
     [router.asPath],
   );

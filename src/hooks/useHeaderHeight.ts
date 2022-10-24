@@ -9,9 +9,11 @@ const useHeaderHeight = () => {
   const [headerHeight, setHeaderHeight] = useAtom(headerHeightAtom);
 
   useEffect(() => {
-    const desktopHeader = document.getElementById('desktopHeader');
-
-    setHeaderHeight(desktopHeader?.clientHeight || 0);
+    setTimeout(() => {
+      const desktopHeader = document.getElementById('desktopHeader');
+      console.log({ desktopHeader });
+      setHeaderHeight(desktopHeader?.clientHeight || 0);
+    }, 200);
   }, [router.pathname, setHeaderHeight]);
 
   return { headerHeight };
